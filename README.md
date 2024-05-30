@@ -58,7 +58,12 @@ fn test_ensure() -> anyhow_tauri::TAResult<String> {
 }
 ```
 
-Notice that you can casually use the `?` operator. I've had to create a wrapper for the `bail!()` and `ensure!()` macros, since I was unable to implement proper traits for them (somebody can submit a PR tho). The `TA` before each type means `TauriAnyhow` because I don't want to use type names that could collide with other type names in your codebase. The whole crate is around +-100 lines of code. If you don't want to depend on _another_ package, you should be able to copy-paste it to your codebase without any problems (I don't expect this crate to change _that_ much).
+## Notes
+
+- Notice that you can casually use the `?` operator.
+- I've had to create a wrapper for the `bail!()` and `ensure!()` macros, since I was unable to implement proper traits for them (somebody can submit a PR tho).
+- The `TA` before each type means `TauriAnyhow` because I don't want to use type names that could collide with other type names in your codebase.
+- The whole crate is around +-100 lines of code. If you don't want to depend on _another_ package, you should be able to copy-paste it to your codebase without any problems (I don't expect this crate to change _that_ much).
 
 ## Caveats
 
