@@ -4,7 +4,15 @@ use serde::Serialize;
 pub struct TACommandError(pub anyhow::Error);
 impl std::fmt::Display for TACommandError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{:#}", self.0)
+        #[cfg(any(debug_assertions, feature = "show_errs_in_release"))]
+        {
+            write!(f, "{:#}", self.0)
+        }
+
+        #[cfg(not(any(debug_assertions, feature = "show_errs_in_release")))]
+        {
+            write!(f, "{}", self.0)
+        }
     }
 }
 impl std::error::Error for TACommandError {}
@@ -13,7 +21,15 @@ impl Serialize for TACommandError {
     where
         S: serde::Serializer,
     {
-        serializer.serialize_str(&format!("{:#}", self.0))
+        #[cfg(any(debug_assertions, feature = "show_errs_in_release"))]
+        {
+            serializer.serialize_str(&format!("{:#}", self.0))
+        }
+
+        #[cfg(not(any(debug_assertions, feature = "show_errs_in_release")))]
+        {
+            serializer.serialize_str("errors disabled in production.")
+        }
     }
 }
 impl From<anyhow::Error> for TACommandError {

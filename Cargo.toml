@@ -1,7 +1,17 @@
 [package]
 name = "anyhow-tauri"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
+exclude = ["demo/*"]
+license = "MIT"
+description = "A crate that lets you use anyhow as a command result with the tauri framework."
+homepage = "https://github.com/TDiblik/anyhow-tauri"
+repository = "https://github.com/TDiblik/anyhow-tauri"
+authors = ["Tomáš Diblík <dibla.tomas@post.cz>"]
+readme = "./README.md"
+
+[features]
+show_errs_in_release = []
 
 [dependencies]
 anyhow = "1"
