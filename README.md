@@ -73,7 +73,7 @@ fn test_ensure() -> anyhow_tauri::TAResult<String> {
 
 ## Credit
 
-Initially, when I asked about using `anyhow` with tauri in a Tauri Working Group Office Hours call, a Discord user (I cannot find them for the love of god 😅) suggested I use the following code:
+Initially, when I asked about using `anyhow` with tauri in a Tauri Working Group Office Hours call, a Discord user [@kesomannen](https://github.com/Kesomannen), suggested I use the following code:
 
 ```rust
 #[derive(Debug)]
@@ -99,4 +99,5 @@ impl From<anyhow::Error> for CommandError {
 pub type Result<T> = std::result::Result<T, CommandError>;
 ```
 
-I've taken this code, further extended it, and added some additional features so that it's "smoother" for `anyhow` to work with `tauri`. Soooo... credit to _that mysterious Discord user_ :/
+I've taken this code, further extended it, and added some additional features so that it's "smoother" for `anyhow` to work with `tauri`.
+The code is originally from his [gale project](https://github.com/Kesomannen/gale/blob/7d05fa16c3497dce002e3b77b29e2ec922fa1ad7/src-tauri/src/util/cmd.rs), which is under GPL-3.0, however, he said he's cool with this package being MIT. Sooo, go support him! :D
