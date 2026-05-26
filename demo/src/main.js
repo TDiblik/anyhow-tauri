@@ -1,4 +1,4 @@
-const { invoke } = window.__TAURI__.tauri;
+const { invoke } = window.__TAURI__.core;
 
 window.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#test-1").addEventListener("click", async () => {

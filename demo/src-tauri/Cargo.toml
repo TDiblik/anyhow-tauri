@@ -6,17 +6,17 @@ authors = ["you"]
 edition = "2021"
 
 # don't use the following in "real" application
-# this is here just so you can see the app's behaviour 
+# this is here just so you can see the app's behaviour
 # with/without the `show_errs_in_release` feature
 [profile.release.package.wry]
 debug = true
 debug-assertions = true
 
 [build-dependencies]
-tauri-build = { version = "1", features = [] }
+tauri-build = { version = "2", features = [] }
 
 [dependencies]
-tauri = { version = "1", features = ["shell-open"] }
+tauri = { version = "2", features = [] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 anyhow = "1"
